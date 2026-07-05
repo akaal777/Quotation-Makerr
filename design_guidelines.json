@@ -1,0 +1,88 @@
+{
+  "project_context": {
+    "type": "Single Page Quotation Web App",
+    "domain": "Solar Energy Dashboard / Small Business Tool",
+    "theme": "Light",
+    "archetype": "1 (Organic & Earthy) - Warm sand, bone-white, earth-tones to convey trust and energy."
+  },
+  "typography": {
+    "font_families": {
+      "heading": "Outfit",
+      "body": "Work Sans"
+    },
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl tracking-tight font-heading font-semibold text-stone-900",
+      "h2": "text-2xl sm:text-3xl tracking-tight font-heading font-medium text-stone-800",
+      "h3": "text-xl sm:text-2xl font-heading font-medium text-stone-800",
+      "body": "text-base font-body leading-relaxed text-stone-700",
+      "label": "text-xs font-body font-semibold uppercase tracking-[0.2em] text-stone-500"
+    }
+  },
+  "colors": {
+    "palette": {
+      "background": "#F5F5F0",
+      "surface": "#FFFFFF",
+      "primary": "#D97706",
+      "primary_hover": "#B45309",
+      "secondary": "#292524",
+      "text_main": "#1C1917",
+      "text_muted": "#57534E",
+      "border": "#E7E5E4"
+    },
+    "usage": "Use primary color sparingly for primary actions (Generate button, active state). Use subtle earth tones for backgrounds. Avoid pure white for app background; use off-white (#F5F5F0)."
+  },
+  "layout_and_spacing": {
+    "system": "Tailwind Space Scale",
+    "containers": "p-6 md:p-8 rounded-2xl bg-surface border border-border shadow-sm",
+    "grid_strategy": "Control Room grid: tight gaps (gap-6) for forms. Use grid-cols-1 on mobile, md:grid-cols-2 lg:grid-cols-3 for dense data entry fields.",
+    "alignment": "Left-align forms and dense content. Ensure visual alignment of labels and inputs."
+  },
+  "components": {
+    "forms": "Shadcn UI heavily customized. Inputs and selects should have flat backgrounds (bg-stone-50), subtle borders, and focus rings using primary color. No floating labels.",
+    "buttons": "Solid rounded-lg shapes. Primary: bg-[#D97706] text-white hover:bg-[#B45309]. Secondary: outline or ghost.",
+    "editable_list": "Cardless, linear list style. Items should have a subtle border-b border-border/50. Hovering highlights the row for editing.",
+    "pdf_preview": "Design a print-ready A4-proportioned view. Must look like a formal document (sans-serif clean typography, high contrast, vendor details prominent)."
+  },
+  "motion": {
+    "micro_interactions": "Subtle hover states on list items and buttons. Use Framer Motion for a smooth entry animation of the form on load.",
+    "transitions": "transition-all duration-200 ease-in-out"
+  },
+  "media_and_assets": {
+    "images": [
+      {
+        "url": "https://images.pexels.com/photos/12243093/pexels-photo-12243093.jpeg",
+        "category": "hero_or_header",
+        "description": "Solar panels on a suburban home. Use as a top banner overlay or print header background with a heavy white fade so text remains legible."
+      }
+    ],
+    "icons": {
+      "library": "lucide-react",
+      "usage": "Use icons for section headers (e.g., User, MapPin, Calendar, Zap for kW, Calculator for amount)."
+    }
+  },
+  "development_instructions": {
+    "stack": "React.js (JavaScript, NOT TypeScript), Tailwind CSS, Shadcn UI.",
+    "testing": "All interactive elements (inputs, selects, buttons, editable rows) MUST include `data-testid` (e.g., `data-testid='customer-name-input'`).",
+    "logic_requirements": [
+      "GST Calculation: User enters Total Amount. Basic Price = Total Amount / 1.089. GST Amount = Total Amount - Basic Price. Display all three.",
+      "Auto-fill: When user selects kW from range (3 KW to 500 KW), automatically update the Inverter list item to '[Selected] kW Grid-Tied Inverter...'.",
+      "Print formatting: Implement react-to-print or native window.print() with specific `@media print` CSS to hide UI controls and just print the generated quotation document.",
+      "Quotation History: Save generated quotes to localStorage and display in a 'History' tab/modal."
+    ],
+    "vendor_details": "NewFriends SolarEnergy, Office: Ramdittewala Kanchiyan Near 4 Season Hotel, Mansa (Punjab-151505). Head Office: V.P.O. Makha, Mansa, Punjab. Contact: 98724-07002. Hardcode these into the template.",
+    "default_items": [
+      "I. Solar PV Modules: Monoperc Bifacial DCR Panels (590Wp / 156 Cell) \u2013 9 Nos.",
+      "II. Solar Inverter: [ ] kW Grid-Tied Inverter (Tata Power Solar Approved)",
+      "III. Distribution Boxes: ACDB / DCDB",
+      "IV. Module Mounting Structure: Elevated Structure / Hot-Dip Galvanized GI",
+      "V. DC Electrical Cabling: Polycab / Birla DC Solar Wire",
+      "VI. AC Electrical Cabling: Havells AC Wire",
+      "VII. Earthing & Grounding: Heavy-duty Ground Earthing (250mm)",
+      "VIII. Lightning Protection: Elite Lightning Arrester (LA)",
+      "IX. Down-Conductor: Havells 16mm Copper Wire (LA to Earthing Strip Connection)",
+      "X. Earthing Strip: 25x3 GI Strip",
+      "XI. Hardware & Fasteners: Stainless Steel (SS) Nuts & Bolts",
+      "XII. Structure Accessories: End Caps (60x40)"
+    ]
+  }
+}

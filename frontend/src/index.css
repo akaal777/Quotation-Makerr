@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Work+Sans:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --background: 60 20% 96%;
+    --foreground: 24 10% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 24 10% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 10% 10%;
+    --primary: 27 96% 44%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 6% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 30 8% 94%;
+    --muted-foreground: 25 6% 34%;
+    --accent: 27 96% 92%;
+    --accent-foreground: 24 10% 10%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 8% 88%;
+    --input: 30 8% 88%;
+    --ring: 27 96% 44%;
+    --radius: 0.75rem;
+}
+
+* {
+    border-color: hsl(var(--border));
+}
+
+html,
+body {
+    margin: 0;
+    background: #f5f5f0;
+    color: #1c1917;
+    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.font-heading {
+    font-family: "Outfit", sans-serif;
+    letter-spacing: -0.01em;
+}
+
+.font-body {
+    font-family: "Work Sans", sans-serif;
+}
+
+/* Sun grain background */
+.bg-parchment {
+    background-color: #f5f5f0;
+    background-image:
+        radial-gradient(
+            circle at 12% 8%,
+            rgba(217, 119, 6, 0.08) 0%,
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at 92% 92%,
+            rgba(41, 37, 36, 0.05) 0%,
+            transparent 40%
+        );
+}
+
+/* Subtle noise */
+.grain::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    z-index: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* Small label */
+.tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #78716c;
+}
+
+/* Rows in editable list */
+.item-row {
+    transition: background-color 0.2s ease;
+}
+.item-row:hover {
+    background-color: #faf8f2;
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: #ffffff !important;
+    }
+    .no-print {
+        display: none !important;
+    }
+    .print-area {
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: #ffffff !important;
+    }
+    @page {
+        size: A4;
+        margin: 14mm;
+    }
+}
+
+/* Focus ring polish */
+input:focus-visible,
+textarea:focus-visible,
+button:focus-visible,
+[role="combobox"]:focus-visible {
+    outline: 2px solid #d97706;
+    outline-offset: 2px;
+}
